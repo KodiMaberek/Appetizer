@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+extension URL {
+    static let mainUrl = URL(string: "https://seanallen-course-backend.herokuapp.com/swiftui-fundamentals/appetizers")!
+}
