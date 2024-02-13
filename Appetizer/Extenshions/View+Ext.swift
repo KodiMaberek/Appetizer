@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import SwiftUI
+
+extension View {
+    func isLoadingView(loading: Bool) -> some View {
+        overlay.self {
+            Group {
+                if loading {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                        .tint(.brand)
+                }
+            }
+        }
+    }
+}
