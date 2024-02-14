@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct NutritionMenu: View {
+    var title: String
+    var info: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 8) {
+          Text(title)
+                .bold()
+                .font(.caption)
+            Text(info).fontWeight(.semibold).italic()
+                .foregroundStyle(.secondary)
+        }
     }
 }
 
 #Preview {
-    NutritionMenu()
+    NutritionMenu(title: "Carbs", info: "9")
 }
