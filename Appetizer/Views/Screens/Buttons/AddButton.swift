@@ -8,11 +8,21 @@
 import SwiftUI
 
 struct AddButton: View {
+    
+    var title: LocalizedStringKey
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(title).fontWeight(.semibold)
+                .font(.title2)
+                .frame(width: 250, height: 45)
+                .foregroundStyle(.white)
+                .background(Color(.brand))
+                .clipShape(.rect(cornerRadius: 10, style: .continuous))
+        }
     }
 }
 
 #Preview {
-    AddButton()
+    AddButton(title: "$ 9.9 - add to order")
 }
