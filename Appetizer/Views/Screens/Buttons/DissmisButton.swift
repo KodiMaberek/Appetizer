@@ -9,7 +9,15 @@ import SwiftUI
 
 struct DissmisButton: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Circle()
+                .foregroundStyle(.gray)
+                .frame(width: 25)
+            Image(systemName: "chevron.down.circle")
+                .opacity(0.6)
+                .imageScale(.large)
+                .foregroundStyle(.black)
+        }
     }
 }
 
