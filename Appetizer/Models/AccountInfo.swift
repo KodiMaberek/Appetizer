@@ -1,5 +1,5 @@
 //
-//  PersonInfo.swift
+//  AccountInfo.swift
 //  Appetizer
 //
 //  Created by Rodion Akhmedov on 2/13/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PersonInfo: Codable {
+struct AccountInfo: Codable {
     var firstName: String = ""
     var lastName: String = ""
     var birthDate = Date()
