@@ -13,7 +13,7 @@ extension ZStack {
         overlay.self {
             if showingDetail.wrappedValue {
                 Group {
-                    ApeptizerDetail(appetizer: appetizer!, showingDetails: showingDetail)
+                    AppetizerDetail(appetizer: appetizer!, showingDetails: showingDetail)
                 }
             }
         }

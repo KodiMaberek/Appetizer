@@ -1,5 +1,5 @@
 //
-//  ApeptizerDetail.swift
+//  AppetizerDetail.swift
 //  Appetizer
 //
 //  Created by Rodion Akhmedov on 2/12/24.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ApeptizerDetail: View {
+struct AppetizerDetail: View {
     
     var appetizer: Appetizer
     
@@ -71,5 +71,5 @@ struct ApeptizerDetail: View {
 }
 
 #Preview {
-    ApeptizerDetail(appetizer: Appetizer(id: 1, name: "Asian Flake Stake", description: "This perfectly thin cut just melts in your mouth", imageURL: "https://seanallen-course-backend.herokuapp.com/images/appetizers/asian-flank-steak.jpg", carbs: 6, protein: 12, calories: 340, price: 9.99), showingDetails: .constant(true))
+    AppetizerDetail(appetizer: Appetizer(id: 1, name: "Asian Flake Stake", description: "This perfectly thin cut just melts in your mouth", imageURL: "https://seanallen-course-backend.herokuapp.com/images/appetizers/asian-flank-steak.jpg", carbs: 6, protein: 12, calories: 340, price: 9.99), showingDetails: .constant(true))
 }
