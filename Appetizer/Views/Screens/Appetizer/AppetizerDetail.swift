@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AppetizerDetail: View {
     
+    @EnvironmentObject var order: OrderViewModel
+    
     var appetizer: Appetizer
     
     @Binding var showingDetails: Bool
@@ -51,6 +53,7 @@ struct AppetizerDetail: View {
                 
                 Button {
                     showingDetails = false
+                    order.add(appetizer)
                 } label: {
                     AddButton(title: "\(appetizer.price, format: .currency(code: "USD")) - add to Order")
                 }
@@ -65,8 +68,6 @@ struct AppetizerDetail: View {
         }
         .clipShape(.rect(cornerRadius: 10, style: .continuous))
         .shadow(radius: 30)
-      
-       
     }
 }
 
