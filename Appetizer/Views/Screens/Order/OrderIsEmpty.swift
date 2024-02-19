@@ -9,7 +9,24 @@ import SwiftUI
 
 struct OrderIsEmpty: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            VStack(spacing: 30) {
+                Image(.emptyOrder)
+                    .resizable()
+                    .frame(width: 300, height: 230)
+                Text("It's empty here")
+                    .font(.title2)
+                   
+                Text("Why don't you add anufood in your bag?")
+                    .foregroundStyle(.secondary)
+                Button {
+                    
+                } label: {
+                    AddButton(title: "Go to menu")
+                }
+                Spacer()
+            }
+        }
     }
 }
 
