@@ -17,6 +17,8 @@ final class AppetizerViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var alert: AlertItem?
     @Published var appetizerSelect: Appetizer?
+    
+    @MainActor
     func load() async {
         isLoading = true
         do {
