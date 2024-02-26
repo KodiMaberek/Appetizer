@@ -25,10 +25,11 @@ struct AppetizerList: View {
                             }
                         }
                 }
-                .blur(radius: showingDetails ? 8 : 0)
-                .disabled(showingDetails ? true : false)
             }
-            .showingDetails(showingDetail: $showingDetails, appetizer: vm.appetizerSelect)
+            .sheet(isPresented: $showingDetails, content: {
+                AppetizerDetail(appetizer: vm.appetizerSelect!, showingDetails: $showingDetails)
+                    .transition(.slide.animation(.bouncy))
+            })
             .isLoadingView(loading: vm.isLoading)
             .task {
                 await vm.load()
