@@ -60,5 +60,4 @@ final class AccountViewModel: ObservableObject {
             print(error.localizedDescription)
         }
     }
-    
 }
