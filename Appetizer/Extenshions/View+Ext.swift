@@ -21,3 +21,16 @@ extension View {
         }
     }
 }
+
+extension NavigationView {
+    func isOrderEmpty(_ value: Bool) -> some View {
+        overlay.self {
+            Group {
+                if value {
+                    OrderIsEmpty()
+                        .offset(y: 200)
+                }
+            }
+        }
+    }
+}
