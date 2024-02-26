@@ -8,23 +8,29 @@
 import SwiftUI
 
 struct OrderIsEmpty: View {
+    @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var tabIndex: TabBar
+    
+    @State private var goTomenu = false
     var body: some View {
-        ZStack {
-            VStack(spacing: 30) {
-                Image(.emptyOrder)
-                    .resizable()
-                    .frame(width: 300, height: 230)
-                Text("It's empty here")
-                    .font(.title2)
-                   
-                Text("Why don't you add anufood in your bag?")
-                    .foregroundStyle(.secondary)
-                Button {
+        NavigationView {
+            ZStack {
+                VStack(spacing: 30) {
+                    Image(.emptyOrder)
+                        .resizable()
+                        .frame(width: 300, height: 230)
+                    Text("It's empty here")
+                        .font(.title2)
+                    Text("Why don't you add anufood in your bag?")
+                        .foregroundStyle(.secondary)
                     
-                } label: {
-                    AddButton(title: "Go to menu")
+                    Button(action: {
+                        tabIndex.selectIndex = 0
+                    }, label: {
+                        AddButton(title: "Go to menu")
+                    })
+                    Spacer()
                 }
-                Spacer()
             }
         }
     }
