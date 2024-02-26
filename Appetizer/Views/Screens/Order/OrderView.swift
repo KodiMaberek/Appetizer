@@ -12,25 +12,35 @@ struct OrderView: View {
     @EnvironmentObject var vm: OrderViewModel
     
     var body: some View {
-        ZStack {
-            NavigationView {
-                List {
-                    ForEach(vm.order.items) { order in
-                        AppetizerCell(appetizer: order)
+        NavigationView {
+            ZStack {
+                VStack {
+                    List {
+                        ForEach(vm.order.items) { order in
+                            AppetizerCell(appetizer: order)
+                        }
+                        .onDelete(perform: vm.delete)
                     }
-                    .onDelete(perform: vm.delete)
+                    .listStyle(.inset)
+                    
+                    Button {
+                        
+                    } label: {
+                        AddButton(title: "\(vm.totalPrice) ")
+                    }
+                    .onAppear {
+                        vm.retrivieng()
+                    }
+                    .disabled(vm.order.items.isEmpty ? true : false)
                 }
-                .disabled(vm.order.items.isEmpty ? true : false)
-                .navigationTitle("Order 🧾")
             }
-            if vm.order.items.isEmpty {
-                OrderIsEmpty()
-                    .offset(y: 200)
-            }
+            .navigationTitle("Order 🧾")
         }
+        .isOrderEmpty(vm.order.items.isEmpty)
     }
 }
 
 #Preview {
     OrderView()
 }
+
