@@ -17,24 +17,21 @@ struct AppetizerDetail: View {
     
     var body: some View {
         VStack {
-            ZStack(alignment: .topLeading) {
-                AsyncImage(url: URL(string: appetizer.imageURL)) { image in
+            AsyncImage(url: URL(string: appetizer.imageURL)) { image in
                 image
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 300, height: 225)
-                } placeholder: {
-                    Image(.foodPlaceholder)
-                        .resizable()
-                        .scaledToFit()
-                }
-                Button {
-                    showingDetails = false
-                } label: {
-                    DissmisButton()
-                }
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(.rect(cornerRadius: 10, style: .circular))
+                    .frame(width: 380, height: 300)
+                    .shadow(radius: 8)
+                
+            } placeholder: {
+                Image(.foodPlaceholder)
+                    .resizable()
+                    .scaledToFit()
             }
-            VStack {
+            
+            VStack(spacing: 25) {
                 Text(appetizer.name)
                     .font(.title2)
                     .fontWeight(.semibold)
@@ -50,24 +47,17 @@ struct AppetizerDetail: View {
                     NutritionMenu(title: "Calories", info: String(appetizer.calories))
                 }
                 Spacer()
-                
                 Button {
                     showingDetails = false
                     order.add(appetizer)
+                    order.saveOrderList()
                 } label: {
                     AddButton(title: "\(appetizer.price, format: .currency(code: "USD")) - add to Order")
+                        .padding()
                 }
-                .padding()
             }
+            Spacer()
         }
-        
-        .frame(width: 300, height: 500)
-        .background()
-        .overlay {
-            Rectangle().stroke(.white, lineWidth: 1)
-        }
-        .clipShape(.rect(cornerRadius: 10, style: .continuous))
-        .shadow(radius: 30)
     }
 }
 
