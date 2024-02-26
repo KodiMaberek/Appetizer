@@ -28,13 +28,12 @@ struct AccountView: View {
                     } label: {
                         Text("Save changes")
                     }
-                    
                 }
                 Section("Requests") {
                     Toggle("Extra napkins", isOn: $vm.person.extraNapkins)
                     Toggle("Frequent order", isOn: $vm.person.freqencyOrder)
                 }
-        
+                
             }
             .alert(item: $vm.alert, content: { alert in
                 Alert(title: alert.title, message: alert.description, dismissButton: alert.button)
@@ -43,7 +42,7 @@ struct AccountView: View {
                 vm.retrieving()
             }
             .tint(.brand)
-                .navigationTitle("Account🤓")
+            .navigationTitle("Account🤓")
         }
     }
 }
