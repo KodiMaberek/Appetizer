@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+
+class TabBar: ObservableObject {
+    @Published var selectIndex = 0
+}
