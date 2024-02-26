@@ -8,6 +8,12 @@
 import Foundation
 import SwiftUI
 
-struct Order: Codable {
-    var items = [Appetizer]()
+struct Order: Codable, Equatable {
+  
+    
+    var items: [Appetizer] = []
+    
+    enum CodingKeys: String, CodingKey {
+        case _item = "item"
+    }
 }
