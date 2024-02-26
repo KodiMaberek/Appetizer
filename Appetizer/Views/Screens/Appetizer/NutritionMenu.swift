@@ -12,7 +12,7 @@ struct NutritionMenu: View {
     var info: String
     var body: some View {
         VStack(spacing: 8) {
-          Text(title)
+            Text(title)
                 .bold()
                 .font(.caption)
             Text(info).fontWeight(.semibold).italic()
